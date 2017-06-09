@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace blabla
+namespace blebe
 {
     public partial class App : Application
     {
@@ -8,8 +8,7 @@ namespace blabla
         {
             InitializeComponent();
 
-            //var page = new TabbedPage();
-            MainPage = new NavigationPage(new MyPage());
+            MainPage = new blebePage();
         }
 
         protected override void OnStart()
@@ -26,6 +25,5 @@ namespace blabla
         {
             // Handle when your app resumes
         }
-
     }
 }

@@ -42,9 +42,12 @@ namespace blabla
             var BlueColorButton = new Button() {Text = "BLUE", BackgroundColor = Color.Blue, TextColor = Color.White};
             var GreenColorButton = new Button() {Text = "GREEN", BackgroundColor = Color.Green, TextColor = Color.White};
 
-			RedColorButton.Clicked += OnButtonClicked;
-            BlueColorButton.Clicked += OnButtonClicked;
-            GreenColorButton.Clicked += OnButtonClicked;
+			//RedColorButton.Clicked += OnButtonClicked;
+            RedColorButton.Clicked += OnNextPageButtonClicked;
+			//BlueColorButton.Clicked += OnButtonClicked;
+			BlueColorButton.Clicked += OnNextPageButtonClicked;
+			//GreenColorButton.Clicked += OnButtonClicked;
+			GreenColorButton.Clicked += OnNextPageButtonClicked;
 
             ColorText.TextChanged += (sender, e) =>
             {
@@ -67,8 +70,14 @@ namespace blabla
             {
                 var button = (Button) sender ;
                 label.TextColor =  button.BackgroundColor ;
+
             }
 
+    async void OnNextPageButtonClicked(object sender, EventArgs e)
+		{
+            var button = (Button)sender;
+            await Navigation.PushAsync(new MyPage1(button.Text, button.BackgroundColor));
+		}
     }
 }
 
